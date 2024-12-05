@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h3>Todas completas</h3>
+
+{% for task in completed_tasks %}
+<div class="task-div">
+	<h4>
+		Tarefa: {{ task.title }}
+	</h4>
+	{{ task.description }} <br>
+	Completada por: {{ task.user }}!
+</div>
+{% endfor %}
+{% endblock %}

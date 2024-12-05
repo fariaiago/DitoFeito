@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>DitoFeito</title>
+	<style>
+		
+		body {
+			color: royalblue;
+			background-color: whitesmoke;
+		}
+
+		svg {
+			width: 24px;
+		}
+
+		button {
+			background-color: transparent;
+			border: 2px solid slateblue;
+			border-radius: 8px;
+			margin-top: 4px;
+		}
+
+		h4 {
+			margin: 0px;
+		}
+		
+		button:hover {
+			cursor: pointer;
+			border-color: darkslateblue;
+		}
+		
+		.user-div {
+			float: right;
+		}
+		
+		.task-div {
+			border: 4px solid turquoise;
+			padding: 4px;
+			margin: 4px;
+			border-radius: 8px;
+			background-color: white;
+			width: 400px;
+		}
+		
+		.check-button {
+			color: limegreen;
+			float: right;
+		}
+
+		.delete-button {
+			color: crimson;
+		}
+
+		#check-a {
+			color: limegreen;
+			float: right;
+		}
+
+		#delete-a {
+			color: crimson;
+		}
+
+		.form-div {
+			align-content: center;
+			width: 500px;
+			text-align: center;
+		}
+
+		.form-div input {
+			border: 2px solid turquoise;
+			border-radius: 8px;
+			padding: 4px;
+			float: right;
+		}
+
+		.form-div p {
+			margin-top: 16px;
+			margin-bottom: 16px;
+		}
+
+		.form-div span {
+			float: right;
+		}
+
+		.form-div button {
+			color: royalblue;
+			background-color: white;
+			font-size: 16px;
+			padding: 8px;
+			margin-top: 16px;
+		}
+
+		.form-div textarea {
+			border: 2px solid turquoise;
+			border-radius: 8px;
+			padding: 4px;
+			float: right;
+		}
+
+		#id_title {
+			width: 288px;
+		}
+
+		.errorlist {
+			list-style-position: inside;
+			padding-left: 0px;
+			border: 2px solid crimson;
+			color: crimson;
+			margin-top: 4px;
+			margin-bottom: 4px;
+		}
+
+		.links-div {
+			align-content: center;
+		}
+
+		.button-form {
+			display: inline;
+		}
+	</style>
+</head>
+<body>
+	<header>
+		{% if user.is_authenticated %}
+			<p>
+				<div class="user-div">
+					Bem vindo, {{ user.username }} | <a href="{% url 'logout' %}">Logout</a>
+				</div>
+				<div class="links-div">
+					<a href="{% url 'task_list' %}">Tarefas</a> |
+					<a href="{% url 'create_task' %}">Nova tarefa</a> |
+					<a href="{% url 'taskiary' %}">Tarefário</a>
+				</div>
+			</p>
+		{% else %}
+			<p>
+				<div class="user-div">
+					<a href="{% url 'login' %}">Login</a>
+					<a href="{% url 'register' %}">Cadastrar</a>
+				</div>
+			</p>
+		{% endif %}
+	</header>
+
+	{% block content %}
+	{% endblock %}
+</body>
+</html>

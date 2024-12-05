@@ -1,0 +1,13 @@
+<ion-content>
+	<div class="login-container">
+		<h1>DitoFeito</h1>
+		<h2>Login</h2>
+		<ion-item>
+			<ion-input label="Usuário" type="text" name="username" [(ngModel)]="instance.username"></ion-input>
+		</ion-item>
+		<ion-item>
+			<ion-input label="Senha" type="password" name="password" [(ngModel)]="instance.password"></ion-input>
+		</ion-item>
+		<ion-button expand="block" (click)="login()">Login</ion-button>
+	</div>
+</ion-content>

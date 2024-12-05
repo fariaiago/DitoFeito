@@ -1,0 +1,28 @@
+<ion-header>
+	<ion-toolbar>
+		<ion-title>Tarefas</ion-title>
+		<ion-buttons slot="end">
+			<ion-button (click)="openTaskForm()">
+				<ion-icon name="add"></ion-icon>
+			</ion-button>
+		</ion-buttons>
+	</ion-toolbar>
+</ion-header>
+<ion-content>
+	<ion-list>
+		<ion-item-sliding *ngFor="let task of tasks">
+			<ion-item>
+				<ion-checkbox [checked]="task.completed" (ionChange)="toggleTaskCompletion(task)">
+					<h2 *ngIf="!task.completed">{{ task.title }}</h2>
+					<p *ngIf="!task.completed">{{ task.description }}</p>
+					<s>
+						<h2 *ngIf="task.completed">{{ task.title }}</h2>
+					</s>
+					<s>
+						<p *ngIf="task.completed">{{ task.description }}</p>
+					</s>
+				</ion-checkbox>
+			</ion-item>
+		</ion-item-sliding>
+	</ion-list>
+</ion-content>
